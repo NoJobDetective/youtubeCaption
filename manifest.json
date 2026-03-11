@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Subtitle Summarizer",
+  "version": "1.0",
+  "description": "YouTubeページから字幕を取得し、ChatGPT/Geminiで要約",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["page-hook.js"],
+      "matches": ["https://www.youtube.com/*"]
+    }
+  ]
+}
